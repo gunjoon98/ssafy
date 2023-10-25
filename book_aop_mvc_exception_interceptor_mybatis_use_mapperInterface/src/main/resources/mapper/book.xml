@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 대소문자 구분없음 -->
+<!-- 객체 #{} 의미 : get 프로퍼티 이름 -->
+
+<mapper namespace="com.ssafy.ws.model.mapper.BookMapper">
+	<select id="selectAll" resultType="book">
+		select no, title, author, price
+		from book
+	</select>
+	
+	<select id="selectByNo" parameterType="int" resultType="book">
+		select no, title, author, price
+		from book
+		where no = #{no}
+	</select>
+	
+	<insert id="registBook" parameterType="book">
+		insert into book (title, author, price, content)
+		values (#{title}, #{author}, #{price}, #{content})
+	</insert>
+	
+	<delete id="deleteByNo" parameterType="int">
+		delete from book
+		where no = #{no}
+	</delete>
+</mapper>

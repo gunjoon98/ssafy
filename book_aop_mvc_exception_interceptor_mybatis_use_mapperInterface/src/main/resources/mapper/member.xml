@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- 대소문자 구분없음 -->
+<!-- #{} 의미 : get 프로퍼티 이름 -->
+<mapper namespace="com.ssafy.ws.model.mapper.MemberMapper">
+	<resultMap id="member" type="member">
+		<id column="member_no" property="memberNo"/>
+		<result column="member_id" property="memberId"/>
+		<result column="password" property="password"/>
+		<result column="name" property="name"/>
+		<result column="registraion_date" property="registraionDate"/>
+	</resultMap>
+
+	<select id="login" parameterType="member" resultMap="member">
+		select member_id, name
+		from member
+		where member_id=#{memberId} and password=#{password}
+	</select>
+</mapper>
