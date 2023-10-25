@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 대소문자 구분없음 -->
+<!-- 객체 #{} 의미 : get 프로퍼티 이름 -->
+
+<mapper namespace="com.ssafy.product.model.mapper.ProductMapper">
+	<select id="selectAll" resultType="Product">
+		select code, model, price
+		from product
+	</select>
+	
+	<select id="selectByCode" parameterType="String" resultType="Product">
+		select code, model, price
+		from product
+		where code = #{code}
+	</select>
+	
+	<insert id="registProduct" parameterType="Product">
+		insert into product (code, model, price)
+		values (#{code}, #{model}, #{price})
+	</insert>
+	
+	<delete id="deleteByCode" parameterType="String">
+		delete from product
+		where code = #{code}
+	</delete>
+</mapper>
