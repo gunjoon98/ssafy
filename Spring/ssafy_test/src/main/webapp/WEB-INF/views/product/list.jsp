@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>리스트</title>
 </head>
 <body>
 	<%@ include file="../nav.jsp" %> 
@@ -17,10 +18,10 @@
 			<th>모델</th>
 			<th>가격</th>
 		</tr>
-		<c:forEach var="product" items="${requestScope.list}">
+		<c:forEach var="product" items="${list}">
 		<tr>
 			<td>${product.code}</td>
-			<td><a href="${root}/product/view?code=${product.code}">${product.model}<a/></td>
+			<td><a href="${root}/product/view?code=${product.code}">${product.model}</a></td>
 			<td>${product.price}</td>
 		</tr>
 		</c:forEach>

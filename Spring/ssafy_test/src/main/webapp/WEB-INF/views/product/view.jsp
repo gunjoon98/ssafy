@@ -19,11 +19,11 @@
 			<th>가격</th>
 		</tr>
 		<tr>
-			<th>${requestScope.product.code}</th>
-			<th>${requestScope.product.model}</th>
-			<th>${requestScope.product.price}</th>
+			<th>${product.code}</th>
+			<th>${product.model}</th>
+			<th>${product.price}</th>
 		</tr>
 	</table>
-	<a href="${root}/product/delete?code=${requestScope.product.code}">삭제</a>
+	<a href="${root}/product/delete?code=${product.code}">삭제</a>
 </body>
 </html>
